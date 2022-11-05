@@ -1,0 +1,8 @@
+payload:
+  - DOMAIN-KEYWORD,speedtest
+  - DOMAIN-SUFFIX,speedtest.net
+  - DOMAIN-SUFFIX,fast.com
+  - DOMAIN-SUFFIX,speedcheck.org
+  - DOMAIN-SUFFIX,speed.io
+  - DST-PORT,8080
+  - DST-PORT,5060
