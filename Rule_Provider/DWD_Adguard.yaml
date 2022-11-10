@@ -1,0 +1,4 @@
+# Behavior: domain
+payload:
+- "+.adguard-vpn.com"
+- "+.adguard.com"
