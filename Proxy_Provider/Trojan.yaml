@@ -1,0 +1,22 @@
+proxies:
+  - name: TROJAN OVH
+    server: sgovh-trojan.bonds.id
+    port: 443
+    type: trojan
+    password: 2b8fe740-6fbe-11ed-9477-1239d0255272
+    skip-cert-verify: true
+    sni: line-proxy.ruangguru.com
+    udp: true
+  - name: TROJAN OVH WS
+    server: 104.26.4.10
+    port: 443
+    type: trojan
+    password: 275dd4f0-6fc1-11ed-b0ff-1239d0255272
+    skip-cert-verify: true
+    sni: api.qiscus.com
+    network: ws
+    ws-opts:
+    path: ws://api.qiscus.com/howdy # CONTOH ws://api.midtrans.com/lycoris
+      headers:
+        Host: sgovh-trojan.bonds.id # ISI HOST AKUN
+    udp: true
