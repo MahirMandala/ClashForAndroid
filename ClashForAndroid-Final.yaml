@@ -1,0 +1,281 @@
+#Config ini Universal,Bisa Di Gunakan Di App (CFA,CMFA,CFM)
+rule-providers:
+  Rule_AdBlock:
+    type: http
+    behavior: domain
+    path: "./Rule_Provider/Ads.yaml"
+    url: https://raw.githubusercontent.com/Mahirmandala471/ClashForAndroid/main/Rule_Provider/AdBlock.yaml
+  Rule_Ads:
+    type: http
+    behavior: classical
+    path: "./Rule_Provider/Ads.yaml"
+    url: https://raw.githubusercontent.com/Mahirmandala471/ClashForAndroid/main/Rule_Provider/Ads.yaml
+  Rule_Akrab:
+    type: http
+    behavior: classical
+    path: "./Rule_Provider/Akrab.yaml"
+    url: https://raw.githubusercontent.com/Mahirmandala471/ClashForAndroid/main/Rule_Provider/Akrab.yaml
+  Rule_Downloads:
+    type: http
+    behavior: domain
+    path: "./Rule_Provider/Downloads.yaml"
+    url: https://raw.githubusercontent.com/Mahirmandala471/ClashForAndroid/main/Rule_Provider/Downloads.yaml
+  Rule_eMonney:
+    type: http
+    behavior: classical
+    path: "./Rule_Provider/Emonney.yaml"
+    url: https://raw.githubusercontent.com/Mahirmandala471/ClashForAndroid/main/Rule_Provider/Emonney.yaml
+  Rule_Game:
+    type: http
+    behavior: classical
+    path: "./Rule_Provider/Game.yaml"
+    url: https://raw.githubusercontent.com/Mahirmandala471/ClashForAndroid/main/Rule_Provider/Game.yaml
+  Rule_Playstore:
+    type: http
+    behavior: domain
+    path: "./Rule_Provider/Playstore.yaml"
+    url: https://raw.githubusercontent.com/Mahirmandala471/ClashForAndroid/main/Rule_Provider/Playstore.yaml
+  Rule_Sosmed:
+    type: http
+    behavior: classical
+    path: "./Rule_Provider/Sosmed.yaml"
+    url: https://raw.githubusercontent.com/Mahirmandala471/ClashForAndroid/main/Rule_Provider/Sosmed.yaml
+  Rule_Speedtest:
+    type: http
+    behavior: classical
+    path: "./Rule_Provider/Speedtest.yaml"
+    url: https://raw.githubusercontent.com/Mahirmandala471/ClashForAndroid/main/Rule_Provider/Speedtest.yaml
+  Rule_Streaming:
+    type: http
+    behavior: classical
+    path: "./Rule_Provider/Streaming.yaml"
+    url: https://raw.githubusercontent.com/Mahirmandala471/ClashForAndroid/main/Rule_Provider/Streaming.yaml
+#Config Universal By MahirMandala
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: "MahirMandala"
+bind-address: "*"
+unified-delay: true
+profile:
+  store-selected: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 8.8.8.8
+    - 1.0.0.1
+    - https://dns.google/dns-query
+  fallback:
+    - 1.1.1.1
+    - 8.8.4.4
+    - https://cloudflare-dns.com/dns-query
+    - 112.215.203.254
+  default-nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+    - 112.215.203.254
+    
+#Proxy Group
+proxy-groups:
+  - name: LOAD-BALANCE🇸🇬
+    type: load-balance
+    strategy: round-robin
+    disable-udp: false
+    proxies:
+    - TROJAN SG-OVH
+    - TROJAN DualStack
+    url: http://www.gstatic.com/generate_204
+    interval: '60'
+  - name: LOAD-BALANCE🇮🇩
+    type: load-balance
+    strategy: round-robin
+    disable-udp: false
+    proxies:
+    - TROJAN IKD
+    - TROJAN HERZA
+    url: http://www.gstatic.com/generate_204
+    interval: '60'
+  - name: PING-TEST
+    type: url-test
+    disable-udp: false
+    proxies:
+    - TROJAN SG-OVH
+    - TROJAN DualStack
+    - TROJAN UDPGW
+    - TROJAN IKD
+    - TROJAN HERZA
+    url: http://www.gstatic.com/generate_204
+    interval: '60'
+    tolerance: '150'
+  - name: RELAY-TRAFFIC
+    type: relay
+    disable-udp: false
+    proxies:
+    - TROJAN DualStack
+    - TROJAN UDPGW
+    - TROJAN SG-OVH
+  - name: FALLBACK
+    type: fallback
+    disable-udp: false
+    proxies:
+    - TROJAN SG-OVH
+    - TROJAN DualStack
+    - TROJAN UDPGW
+    - TROJAN IKD
+    - TROJAN HERZA
+    url: http://www.gstatic.com/generate_204
+    interval: '60'
+  - name: MANUAL-SELECT
+    type: select
+    disable-udp: false
+    proxies:
+    - TROJAN SG-OVH
+    - TROJAN DualStack
+    - TROJAN UDPGW
+    - TROJAN IKD
+    - TROJAN HERZA
+  - name: XL-AKRAB
+    type: select
+    disable-udp: false
+    proxies:
+      - LOAD-BALANCE🇸🇬
+      - LOAD-BALANCE🇮🇩
+      - PING-TEST
+      - RELAY-TRAFFIC
+      - FALLBACK
+      - MANUAL-SELECT
+  - name: AdBlock📵
+    type: select
+    proxies:
+      - REJECT
+      - LOAD-BALANCE🇸🇬
+      - LOAD-BALANCE🇮🇩
+      - PING-TEST
+      - RELAY-TRAFFIC
+      - FALLBACK
+      - MANUAL-SELECT
+  - name: GAME 🎮
+    type: select
+    disable-udp: false
+    proxies:
+      - DIRECT
+      - LOAD-BALANCE🇸🇬
+      - LOAD-BALANCE🇮🇩
+      - PING-TEST
+      - RELAY-TRAFFIC
+      - FALLBACK
+      - MANUAL-SELECT
+  - name: SOSMED
+    type: select
+    disable-udp: false
+    proxies:
+      - LOAD-BALANCE🇸🇬
+      - LOAD-BALANCE🇮🇩
+      - PING-TEST
+      - RELAY-TRAFFIC
+      - FALLBACK
+      - MANUAL-SELECT
+  - name: STREAMING 📱
+    type: select
+    proxies:
+      - LOAD-BALANCE🇸🇬
+      - LOAD-BALANCE🇮🇩
+      - PING-TEST
+      - RELAY-TRAFFIC
+      - FALLBACK
+      - MANUAL-SELECT
+  - name: EMONNEY 💳
+    type: select
+    proxies:
+      - LOAD-BALANCE🇸🇬
+      - LOAD-BALANCE🇮🇩
+      - PING-TEST
+      - RELAY-TRAFFIC
+      - FALLBACK
+      - MANUAL-SELECT
+  - name: DOWNLOAD⬇️
+    type: select
+    proxies:
+      - LOAD-BALANCE🇸🇬
+      - LOAD-BALANCE🇮🇩
+      - PING-TEST
+      - RELAY-TRAFFIC
+      - FALLBACK
+      - MANUAL-SELECT
+  - name: SPEEDTEST ✓
+    type: select
+    proxies:
+      - LOAD-BALANCE🇸🇬
+      - LOAD-BALANCE🇮🇩
+      - PING-TEST
+      - RELAY-TRAFFIC
+      - FALLBACK
+      - MANUAL-SELECT
+#Rules-Set
+rules:
+- RULE-SET,Rule_Ads,AdBlock📵
+- RULE-SET,Rule_AdBlock,AdBlock📵
+- RULE-SET,Rule_Akrab,XL-AKRAB
+- RULE-SET,Rule_Game,GAME 🎮
+- RULE-SET,Rule_Speedtest,SPEEDTEST ✓
+- RULE-SET,Rule_Sosmed,SOSMED
+- RULE-SET,Rule_Streaming,STREAMING 📱
+- RULE-SET,Rule_Downloads,DOWNLOAD⬇️
+- RULE-SET,Rule_Playstore, DOWNLOAD⬇️
+- RULE-SET,Rule_eMonney,EMONNEY 💳
+- MATCH,GLOBAL
+
+#Proxy Provider
+proxies:
+#Trojan ID
+  - name: TROJAN IKD
+    server: idtj-ikd.bonds.id
+    port: 443
+    type: trojan
+    password: d7fd2150-59ba-11ed-88ee-1239d0255272
+    skip-cert-verify: true
+    sni: web.whatsapp.com
+    udp: true
+  - name: TROJAN HERZA
+    server: idtj-herza.bonds.id
+    port: 443
+    type: trojan
+    password: b7bf22f0-5b13-11ed-89d9-1239d0255272
+    skip-cert-verify: true
+    sni: web.whatsapp.com
+    udp: true
+#TROJAN SG
+  - name: TROJAN SG-OVH
+    server: sgovh-trojan.bonds.id
+    port: 443
+    type: trojan
+    password: 4b9900c0-5b13-11ed-ac79-1239d0255272
+    skip-cert-verify: true
+    sni: web.whatsapp.com
+    udp: true
+  - name: TROJAN DualStack
+    server: sg-atha.bonds.id
+    port: 443
+    type: trojan
+    password: 2d0a1100-5d61-11ed-9d72-1239d0255272
+    skip-cert-verify: true
+    sni: web.whatsapp.com
+    udp: true
+  - name: TROJAN UDPGW
+    server: sg8-trojan.bonds.id
+    port: 443
+    type: trojan
+    password: e54c4d90-6161-11ed-8141-1239d0255272
+    skip-cert-verify: true
+    sni: web.whatsapp.com
+    udp: true
