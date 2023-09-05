@@ -70,6 +70,10 @@ payload:
   - IP-CIDR,91.108.20.0/22
   - IP-CIDR,91.108.56.0/22
   - IP-CIDR,149.154.160.0/20
+  - DST-PORT,32000
+  - DST-PORT,32001
+  - DST-PORT,32002
+  - DST-PORT,32003
   # Twitter
   - DOMAIN-SUFFIX,pscp.tv
   - DOMAIN-SUFFIX,periscope.tv
