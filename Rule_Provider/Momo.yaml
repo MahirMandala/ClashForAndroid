@@ -1,0 +1,37 @@
+payload:
+# BEHAVIOR:CLASSICAL
+  - DOMAIN-KEYWORD,momolive
+  - DOMAIN-KEYWORD,momo
+  - PROCESS-NAME,com.huixin.momo
+  - PROCESS-NAME,com.huixin.momo.fileprovider
+  - PROCESS-NAME,com.huixin.momo.utilcode.fileprovider
+  - PROCESS-NAME,com.huixin.momo.firebaseinitprovider
+  - PROCESS-NAME,com.huixin.momo.androidx-startup
+  - PROCESS-NAME,com.huixin.momo.FacebookInitProvider
+  - DOMAIN-KEYWORD,momoindo.com
+  - DOMAIN-SUFFIX,api.momoindo.com
+  - DOMAIN-SUFFIX,admin101.momoindo.com
+  - DOMAIN-SUFFIX,api-live.momoindo.com
+  - DOMAIN-SUFFIX,game-guess-count.momoindo.com
+  - DOMAIN-SUFFIX,gamecenter.momoindo.com
+  - DOMAIN-SUFFIX,h5.momoindo.com
+  - DOMAIN-SUFFIX,laba.momoindo.com
+  - DOMAIN-SUFFIX,live-h5.momoindo.com
+  - DOMAIN-SUFFIX,newh5.momoindo.com
+  - DOMAIN-SUFFIX,pay.momoindo.com
+  - DOMAIN-SUFFIX,proxy.momoindo.com
+  - DOMAIN-SUFFIX,proxytest.momoindo.com
+  - DOMAIN-SUFFIX,qnoss.momoindo.com
+  - DOMAIN-SUFFIX,android.bugly.qq.com
+  - DOMAIN,graph.facebook.com
+  - DOMAIN-SUFFIX,play.googleapis.com
+  - DOMAIN-SUFFIX,lh3.googleusercontent.com
+  - DOMAIN-SUFFIX,audid-api-sg.taobao.com
+  - DST-PORT,8443
+  - DST-PORT,4061
+  - DST-PORT,8180
+  - DST-PORT,4063
+  - DST-PORT,4066
+  - DST-PORT,5222
+  - DST-PORT,4069
+  - DST-PORT,6603
